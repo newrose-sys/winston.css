@@ -6,6 +6,10 @@
 
 A [Pico CSS 1.5.12](https://github.com/picocss/pico/) fork with a healthy amount of customizations and new features.
 
+## "Kitchen Sink" Demo
+
+[https://newrose-sys.github.io/winston.css/](https://newrose-sys.github.io/winston.css/)
+
 ## Browser support
 
 winston.css is designed and tested for the latest stable Chrome, Firefox, Edge, and Safari releases. It does not support any version of IE, including IE 11.
