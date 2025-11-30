@@ -1,0 +1,80 @@
+@use "../base/config" as *;
+
+/**
+ * Progress
+ */
+
+progress {
+  display: inline-block; // 1
+  vertical-align: baseline; // 2
+}
+
+progress {
+  // Reset the default appearance
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  // Styles
+  display: inline-block;
+  appearance: none;
+  width: 100%;
+  height: 2rem;
+  margin-bottom: calc(var(--spacing) * 0.5);
+  overflow: hidden;
+
+  // Remove Firefox and Opera border
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--color-weak);
+
+  // IE10 uses `color` to set the bar background-color
+  color: var(--color-primary);
+
+  &::-webkit-progress-bar {
+    border-radius: var(--border-radius);
+    background: none;
+  }
+  &[value]::-webkit-progress-value {
+    background-color: var(--color-primary);
+  }
+  &::-moz-progress-bar {
+    background-color: var(--color-primary);
+  }
+
+  // Indeterminate state
+  @media (prefers-reduced-motion: no-preference) {
+    &:indeterminate {
+      background-color: var(--color-primary);
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent 0 20px,
+        rgba($black, 0.25) 20px 40px
+      ) !important;
+      background-size: 200% 200%;
+      background-repeat: repeat-x;
+      animation: progress-indeterminate 5s linear infinite;
+
+      &[value]::-webkit-progress-value {
+        background-color: transparent;
+      }
+
+      &::-moz-progress-bar {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+[dir="rtl"] {
+  @media (prefers-reduced-motion: no-preference) {
+    progress:indeterminate {
+      animation-direction: reverse;
+    }
+  }
+}
+
+@keyframes progress-indeterminate {
+  100% {
+    background-position: 100% 100%;
+  }
+}

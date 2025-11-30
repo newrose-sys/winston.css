@@ -1,0 +1,42 @@
+{
+  "name": "winston",
+  "version": "1.0rc1",
+  "description": "Minimal CSS Framework for semantic HTML",
+  "scripts": {
+    "serve": "node build.mjs --serve",
+    "watch": "node build.mjs --watch",
+    "build": "node build.mjs --production",
+    "build:docs": "node build.mjs --production --docs"
+  },
+  "keywords": [
+    "css",
+    "minimal",
+    "web"
+  ],
+  "author": "Daniel Ornelas / PicoCSS Team",
+  "license": "MIT",
+  "homepage": "https://github.com/danielornelas/winston.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielornelas/winston.css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danielornelas/winston.css/issues"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "README.md"
+  ],
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "prettier": {
+    "tabWidth": 2
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12",
+    "esbuild-sass-plugin": "^3.3.1",
+    "sass": "^1.93.3"
+  }
+}

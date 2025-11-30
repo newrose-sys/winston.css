@@ -1,0 +1,949 @@
+@use "base";
+
+/**
+ * Form elements
+ */
+
+// Reboot based on :
+// - normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
+// - sanitize.css v13.0.0 | CC0 1.0 Universal | github.com/csstools/sanitize.css
+// ––––––––––––––––––––
+
+// 1. Change the font styles in all browsers
+// 2. Remove the margin in Firefox and Safari
+input,
+optgroup,
+select,
+textarea {
+  margin: 0; // 2
+  font-size: 1rem; // 1
+  line-height: var(--line-height); // 1
+  font-family: inherit; // 1
+  letter-spacing: inherit; // 2
+}
+
+// Show the overflow in IE.
+input {
+  overflow: visible;
+}
+
+// Remove the inheritance of text transform in Edge, Firefox, and IE
+select {
+  text-transform: none;
+}
+
+// 1. Correct the text wrapping in Edge and IE
+// 2. Correct the color inheritance from `fieldset` elements in IE
+// 3. Remove the padding so developers are not caught out when they zero out
+// `fieldset` elements in all browsers
+legend {
+  max-width: 100%; // 1
+  padding: 0; // 3
+  color: inherit; // 2
+  white-space: normal; // 1
+}
+
+// 1. Remove the default vertical scrollbar in IE
+textarea {
+  overflow: auto; // 1
+}
+
+// Remove the padding in IE 10
+[type="checkbox"],
+[type="radio"] {
+  padding: 0;
+}
+
+// Correct the cursor style of increment and decrement buttons in Safari
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+// 1. Correct the odd appearance in Chrome and Safari
+// 2. Correct the outline style in Safari
+[type="search"] {
+  -webkit-appearance: textfield; // 1
+  outline-offset: -2px; // 2
+}
+
+// Remove the inner padding in Chrome and Safari on macOS
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// 1. Correct the inability to style clickable types in iOS and Safari
+// 2. Change font properties to `inherit` in Safari
+::-webkit-file-upload-button {
+  -webkit-appearance: button; // 1
+  font: inherit; // 2
+}
+
+// Remove the inner border and padding of focus outlines in Firefox
+::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+//  Remove the focus outline in Firefox
+:-moz-focusring {
+  outline: none;
+}
+
+// Remove the additional :invalid styles in Firefox
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+// Change the inconsistent appearance in IE (opinionated)
+::-ms-expand {
+  display: none;
+}
+
+// Remove the border and padding in all browsers (opinionated)
+[type="file"],
+[type="range"] {
+  padding: 0;
+  border-width: 0;
+}
+
+// Pico
+// ––––––––––––––––––––
+
+// Force height for alternatives input types
+input:not([type="checkbox"], [type="radio"], [type="range"]) {
+  height: calc(
+    (1rem * var(--line-height)) + (var(--form-element-spacing-vertical) * 2) +
+      (var(--border-width) * 2)
+  );
+}
+
+// Fieldset
+fieldset {
+  margin: 0;
+  margin-bottom: var(--spacing);
+  padding: 0;
+  border: 0;
+}
+
+// Label & legend
+label,
+fieldset legend {
+  display: block;
+  margin-bottom: calc(var(--spacing) * 0.25);
+  font-weight: var(--form-label-font-weight, var(--font-weight));
+}
+
+// Blocks, 100%
+input:not([type="checkbox"], [type="radio"]),
+select,
+textarea {
+  width: 100%;
+}
+
+// Reset appearance (Not Checkboxes, Radios, Range and File)
+input:not([type="checkbox"], [type="radio"], [type="range"], [type="file"]),
+select,
+textarea {
+  appearance: none;
+  padding: var(--form-element-spacing-vertical)
+    var(--form-element-spacing-horizontal);
+}
+
+// Commons styles
+input,
+select,
+textarea {
+  --background-color: var(--form-element-background-color);
+  --border-color: var(--form-element-border-color);
+  --color: var(--form-element-color);
+  --box-shadow: none;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  outline: none;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  color: var(--color);
+  font-weight: var(--font-weight);
+
+  transition: box-shadow var(--transition);
+}
+
+// Active & Focus
+input:not([type="submit"], [type="button"], [type="reset"], [type="checkbox"], [type="radio"], [readonly]),
+:where(select, textarea) {
+  &:is(:active, :focus) {
+    --background-color: var(--form-element-active-background-color);
+  }
+}
+
+// Active & Focus
+input:not([type="submit"], [type="button"], [type="reset"], [role="switch"], [readonly]),
+:where(select, textarea) {
+  &:is(:active, :focus) {
+    --border-color: var(--form-element-active-border-color);
+  }
+}
+
+// Focus
+input:not([type="submit"], [type="button"], [type="reset"], [type="range"], [type="file"], [readonly]),
+select,
+textarea {
+  &:focus {
+    --box-shadow: 0 0 0 var(--outline-width) var(--form-element-focus-color);
+  }
+}
+
+// Disabled
+input:not([type="submit"], [type="button"], [type="reset"])[disabled],
+select[disabled],
+textarea[disabled],
+:where(fieldset[disabled]) :is(input:not([type="submit"], [type="button"], [type="reset"]), select, textarea) {
+  --background-color: var(--form-element-disabled-background-color);
+  --border-color: var(--form-element-disabled-border-color);
+  opacity: var(--form-element-disabled-opacity);
+  pointer-events: none;
+}
+
+// Aria-invalid
+:where(input, select, textarea) {
+  &:not([type="checkbox"], [type="radio"], [type="date"], [type="datetime-local"], [type="month"], [type="time"], [type="week"]) {
+    &[aria-invalid] {
+      padding-right: calc(
+        var(--form-element-spacing-horizontal) + 1.5rem
+      ) !important;
+      padding-left: var(--form-element-spacing-horizontal);
+      padding-inline-start: var(--form-element-spacing-horizontal) !important;
+      padding-inline-end: calc(
+        var(--form-element-spacing-horizontal) + 1.5rem
+      ) !important;
+      background-position: center right 0.75rem;
+      background-size: 1rem auto;
+      background-repeat: no-repeat;
+    }
+
+    &[aria-invalid="false"] {
+      background-image: var(--icon-valid);
+    }
+
+    &[aria-invalid="true"] {
+      background-image: var(--icon-invalid);
+    }
+  }
+
+  &[aria-invalid="false"] {
+    --border-color: var(--form-element-valid-border-color);
+
+    &:is(:active, :focus) {
+      --border-color: var(--form-element-valid-active-border-color) !important;
+      --box-shadow: 0 0 0 var(--outline-width) var(--form-element-valid-focus-color) !important;
+    }
+  }
+
+  &[aria-invalid="true"] {
+    --border-color: var(--form-element-invalid-border-color);
+
+    &:is(:active, :focus) {
+      --border-color: var(--form-element-invalid-active-border-color) !important;
+      --box-shadow: 0 0 0 var(--outline-width) var(--form-element-invalid-focus-color) !important;
+    }
+  }
+}
+
+[dir="rtl"] {
+  :where(input, select, textarea) {
+    &:not([type="checkbox"], [type="radio"]) {
+      &:is([aria-invalid], [aria-invalid="true"], [aria-invalid="false"] ){
+        background-position: center left 0.75rem;
+      }
+    }
+  }
+}
+
+// Placeholder
+input::placeholder,
+input::-webkit-input-placeholder,
+textarea::placeholder,
+textarea::-webkit-input-placeholder,
+select:invalid {
+  color: var(--form-element-placeholder-color);
+  opacity: 1;
+}
+
+// Margin bottom (Not Checkboxes and Radios)
+input:not([type="checkbox"], [type="radio"]),
+select,
+textarea {
+  margin-bottom: var(--spacing);
+}
+
+// Select
+select {
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    border: 0;
+    background-color: transparent;
+  }
+
+  &:not([multiple], [size]) {
+    padding-right: calc(var(--form-element-spacing-horizontal) + 1.5rem);
+    padding-left: var(--form-element-spacing-horizontal);
+    padding-inline-start: var(--form-element-spacing-horizontal);
+    padding-inline-end: calc(var(--form-element-spacing-horizontal) + 1.5rem);
+    background-image: var(--icon-chevron);
+    background-position: center right 0.75rem;
+    background-size: 1rem auto;
+    background-repeat: no-repeat;
+  }
+}
+
+[dir="rtl"] {
+  select {
+    &:not([multiple], [size]) {
+      background-position: center left 0.75rem;
+    }
+  }
+}
+
+// Helper
+$inputs: "input, select, textarea, .grid";
+
+:where(#{$inputs}) {
+  + small {
+    display: block;
+    width: 100%;
+    margin-top: calc(var(--spacing) * -0.75);
+    margin-bottom: var(--spacing);
+    color: var(--muted-color);
+  }
+}
+
+// Styles for Input inside a label
+label {
+  > :where(input, select, textarea) {
+    margin-top: calc(var(--spacing) * 0.25);
+  }
+}
+
+
+/**
+ * Form elements
+ * Checkboxes & Radios
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.25em;
+  height: 1.25em;
+  margin-top: -0.125em;
+  margin-right: 0.375em;
+  margin-left: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0.375em;
+  border-width: var(--border-width);
+  font-size: inherit;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &::-ms-check {
+    display: none; // unstyle IE checkboxes
+  }
+
+  &:checked,
+  &:checked:active,
+  &:checked:focus {
+    --background-color: var(--primary);
+    --border-color: var(--primary);
+    background-image: var(--icon-checkbox);
+    background-position: center;
+    background-size: 0.75em auto;
+    background-repeat: no-repeat;
+  }
+
+  & ~ label {
+    display: inline-block;
+    margin-right: 0.375em;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+}
+
+// Checkboxes
+[type="checkbox"] {
+  &:indeterminate {
+    --background-color: var(--primary);
+    --border-color: var(--primary);
+    background-image: var(--icon-minus);
+    background-position: center;
+    background-size: 0.75em auto;
+    background-repeat: no-repeat;
+  }
+}
+
+// Radios
+[type="radio"] {
+  border-radius: 50%;
+
+  &:checked,
+  &:checked:active,
+  &:checked:focus {
+    --background-color: var(--primary-inverse);
+    border-width: 0.35em;
+    background-image: none;
+  }
+}
+
+// Switchs
+[type="checkbox"][role="switch"] {
+  --background-color: var(--switch-background-color);
+  --border-color: var(--switch-background-color);
+  --color: var(--switch-color);
+
+  // Config
+  $switch-height: 1.25em;
+  $switch-width: 2.25em;
+  $switch-transition: 0.1s ease-in-out;
+
+  // Styles
+  width: $switch-width;
+  height: $switch-height;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: $switch-height;
+  background-color: var(--background-color);
+  line-height: $switch-height;
+
+  &:focus {
+    --background-color: var(--switch-background-color);
+    --border-color: var(--switch-background-color);
+  }
+
+  &:checked {
+    --background-color: var(--switch-checked-background-color);
+    --border-color: var(--switch-checked-background-color);
+  }
+
+  &:before {
+    display: block;
+    width: calc(#{$switch-height} - (var(--border-width) * 2));
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--color);
+    content: "";
+    transition: margin $switch-transition;
+  }
+
+  &:checked {
+    background-image: none;
+
+    &::before {
+      margin-left: calc(#{$switch-width * 0.5} - var(--border-width));
+      margin-inline-start: calc(#{$switch-width * 0.5} - var(--border-width));
+    }
+  }
+}
+
+// Aria-invalid
+[type="checkbox"],
+[type="checkbox"]:checked,
+[type="radio"],
+[type="radio"]:checked,
+[type="checkbox"][role="switch"],
+[type="checkbox"][role="switch"]:checked {
+  
+  &[aria-invalid="false"] {
+    --border-color: var(--form-element-valid-border-color);
+  }
+
+  &[aria-invalid="true"] {
+    --border-color: var(--form-element-invalid-border-color);
+  }
+}
+
+/**
+ * Form elements
+ * Alternatives input types (Not Checkboxes & Radios)
+ */
+
+// Color
+[type="color"] {
+  // Wrapper
+  @mixin color-wrapper {
+    padding: 0;
+  }
+
+  &::-webkit-color-swatch-wrapper {
+    @include color-wrapper;
+  }
+
+  &::-moz-focus-inner {
+    @include color-wrapper;
+  }
+
+  // Swatch
+  @mixin color-swatch {
+    border: 0;
+    border-radius: calc(var(--border-radius) * 0.5);
+  }
+
+  &::-webkit-color-swatch {
+    @include color-swatch;
+  }
+
+  &::-moz-color-swatch {
+    @include color-swatch;
+  }
+}
+
+// Date & Time
+// :not() are needed to add Specificity and avoid !important on padding
+input:not([type="checkbox"], [type="radio"], [type="range"], [type="file"]) {
+  &:is([type="date"], [type="datetime-local"], [type="month"], [type="time"], [type="week"]) {
+    --icon-position: 0.75rem;
+    --icon-width: 1rem;
+    padding-right: calc(var(--icon-width) + var(--icon-position));
+    background-image: var(--icon-date);
+    background-position: center right var(--icon-position);
+    background-size: var(--icon-width) auto;
+    background-repeat: no-repeat;
+  }
+
+  // Time
+  &[type="time"] {
+    background-image: var(--icon-time);
+  }
+}
+
+// Calendar picker
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="time"],
+[type="week"] {
+  &::-webkit-calendar-picker-indicator {
+    width: var(--icon-width);
+    margin-right: calc(var(--icon-width) * -1);
+    margin-left: var(--icon-position);
+    opacity: 0;
+  }
+}
+
+[dir="rtl"]
+  :is([type="date"], [type="datetime-local"], [type="month"], [type="time"], [type="week"]) {
+  text-align: right;
+}
+
+// Calendar icons are hidden in Firefox
+@-moz-document url-prefix() {
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="time"],
+  [type="week"] {
+    padding-right: var(--form-element-spacing-horizontal) !important;
+    background-image: none !important;
+  }
+}
+
+// File
+[type="file"] {
+  --background-color: var(--form-element-background-color);
+  --border-color: var(--form-element-border-color);
+  --color: var(--muted-color);
+  padding: calc(var(--form-element-spacing-vertical) * 0.375) var(--form-element-spacing-horizontal);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+
+  @mixin file-selector-button {
+    --background-color: var(--secondary);
+    --border-color: var(--secondary);
+    --color: var(--secondary-inverse);
+    margin-right: calc(var(--spacing) / 2);
+    margin-left: 0;
+    margin-inline-start: 0;
+    margin-inline-end: calc(var(--spacing) / 2);
+    padding: calc(var(--form-element-spacing-vertical) * 0.5)
+      calc(var(--form-element-spacing-horizontal) * 0.5);
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius);
+    outline: none;
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
+    color: var(--color);
+    font-weight: var(--font-weight);
+    font-size: 1rem;
+    line-height: var(--line-height);
+    text-align: center;
+    cursor: pointer;
+
+    transition: background-color var(--transition),
+      border-color var(--transition), color var(--transition),
+      box-shadow var(--transition);
+
+    &:is(:hover, :active, :focus) {
+      --background-color: var(--secondary-hover);
+      --border-color: var(--secondary-hover);
+    }
+  }
+
+  &::file-selector-button {
+    @include file-selector-button;
+  }
+
+  &::-webkit-file-upload-button {
+    @include file-selector-button;
+  }
+
+  &::-ms-browse {
+    @include file-selector-button;
+  }
+}
+
+// File validity states
+[type="file"] {
+  &[aria-invalid="false"] {
+    --border-color: var(--form-element-valid-border-color);
+    --background-color: #{rgba(base.$color-success, 0.15)};
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+
+    &:is(:active, :focus) {
+      --border-color: var(--form-element-valid-active-border-color);
+      --box-shadow: 0 0 0 var(--outline-width) var(--form-element-valid-focus-color);
+    }
+  }
+
+  &[aria-invalid="true"] {
+    --border-color: var(--form-element-invalid-border-color);
+    --background-color: #{rgba(base.$color-error, 0.15)};
+    border: var(--border-width) solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+
+    &:is(:active, :focus) {
+      --border-color: var(--form-element-invalid-active-border-color);
+      --box-shadow: 0 0 0 var(--outline-width) var(--form-element-invalid-focus-color);
+    }
+  }
+}
+
+// Range
+[type="range"] {
+  // Config
+  $height-track: 0.25rem;
+  $height-thumb: 1.25rem;
+  $border-thumb: 2px;
+
+  // Styles
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: $height-thumb;
+  background: none;
+
+  // Slider Track
+  @mixin slider-track {
+    width: 100%;
+    height: $height-track;
+    border-radius: var(--border-radius);
+    background-color: var(--range-border-color);
+    transition: background-color var(--transition),
+      box-shadow var(--transition);
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include slider-track;
+  }
+
+  &::-moz-range-track {
+    @include slider-track;
+  }
+
+  &::-ms-track {
+    @include slider-track;
+  }
+
+  // Slider Thumb
+  @mixin slider-thumb {
+    -webkit-appearance: none;
+    width: $height-thumb;
+    height: $height-thumb;
+    margin-top: #{(-($height-thumb * 0.5) + ($height-track * 0.5))};
+    border: $border-thumb solid var(--range-thumb-border-color);
+    border-radius: 50%;
+    background-color: var(--range-thumb-color);
+    cursor: pointer;
+    transition: background-color var(--transition),
+      transform var(--transition);
+  }
+  &::-webkit-slider-thumb {
+    @include slider-thumb;
+  }
+
+  &::-moz-range-thumb {
+    @include slider-thumb;
+  }
+
+  &::-ms-thumb {
+    @include slider-thumb;
+  }
+
+  &:hover,
+  &:focus {
+    --range-border-color: var(--range-active-border-color);
+    --range-thumb-color: var(--range-thumb-hover-color);
+  }
+
+  &:active {
+    --range-thumb-color: var(--range-thumb-active-color);
+
+    // Slider Thumb
+    &::-webkit-slider-thumb {
+      transform: scale(1.25);
+    }
+
+    &::-moz-range-thumb {
+      transform: scale(1.25);
+    }
+
+    &::-ms-thumb {
+      transform: scale(1.25);
+    }
+  }
+}
+
+// Search
+// :not() are needed to add Specificity and avoid !important on padding
+input:not([type="checkbox"], [type="radio"], [type="range"], [type="file"]) {
+  &[type="search"] {
+    padding-inline-start: calc(var(--form-element-spacing-horizontal) + 1.75rem);
+    border-radius: 5rem;
+    background-image: var(--icon-search);
+    background-position: center left 1.125rem;
+    background-size: 1rem auto;
+    background-repeat: no-repeat;
+
+    &[aria-invalid] {
+      padding-inline-start: calc(var(--form-element-spacing-horizontal) + 1.75rem) !important;
+      background-position: center left 1.125rem, center right 0.75rem;
+    }
+
+    &[aria-invalid="false"] {
+      background-image: var(--icon-search), var(--icon-valid);
+    }
+
+    &[aria-invalid="true"] {
+      background-image: var(--icon-search), var(--icon-invalid);
+    }
+  }
+}
+
+// Cancel button
+[type="search"] {
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    display: none;
+  }
+}
+
+[dir="rtl"] {
+  :where(input) {
+    &:not([type="checkbox"], [type="radio"], [type="range"], [type="file"]) {
+      &[type="search"] {
+        background-position: center right 1.125rem;
+
+        &[aria-invalid] {
+          background-position: center right 1.125rem, center left 0.75rem;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Button
+ */
+
+// Reboot based on :
+// - normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
+// - sanitize.css v13.0.0 | CC0 1.0 Universal | github.com/csstools/sanitize.css
+// ––––––––––––––––––––
+
+// 1. Change the font styles in all browsers
+// 2. Remove the margin on controls in Safari
+// 3. Show the overflow in Edge
+button {
+  margin: 0; // 2
+  overflow: visible; // 3
+  font-family: inherit; // 1
+  text-transform: none; // 1
+}
+
+// Correct the inability to style buttons in iOS and Safari
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+// Pico
+// ––––––––––––––––––––
+
+button {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--spacing);
+}
+
+[role="button"] {
+  display: inline-block;
+  text-decoration: none;
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+[role="button"] {
+  --background-color: var(--color-strong);
+  --border-color: var(--color-strong);
+  --color: var(--primary-inverse);
+  --box-shadow: var(--button-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+  padding: var(--form-element-spacing-vertical)
+    var(--form-element-spacing-horizontal);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  outline: none;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  color: var(--color);
+  font-weight: var(--font-weight);
+  font-size: 1rem;
+  line-height: var(--line-height);
+  text-align: center;
+  cursor: pointer;
+
+  transform: translate(0);
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+  border: 1px solid rgba(base.$black, 0.25);
+  box-shadow: 2px 2px 0 0 rgba(base.$black, 0.25);
+
+  @media (prefers-color-scheme: dark) {
+    --background-color: var(--color-weak);
+    --border-color: var(--color-weak);
+    border: 1px solid rgba(base.$white, 0.25);
+    box-shadow: 2px 2px 0 0 rgba(base.$black, 0.25);
+  }
+
+  &:is([aria-current], :hover, :active, :focus) {
+    opacity: 0.8;
+    --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+    --color: var(--primary-inverse);
+  }
+
+  &:focus {
+    --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)),
+      0 0 0 var(--outline-width) var(--primary-focus);
+  }
+}
+
+.button:active:not(:disabled),
+[type="button"]:active:not(:disabled),
+[type="reset"]:active:not(:disabled),
+[type="submit"]:active:not(:disabled),
+button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+// Latching button state [aria-latched="true"]
+button[aria-latched="true"],
+[type="button"][aria-latched="true"],
+[type="reset"][aria-latched="true"],
+[type="submit"][aria-latched="true"],
+[role="button"][aria-latched="true"] {
+  background-color: rgba(base.$black, 0.025) !important;
+  border: 1px solid rgba(base.$black, 0.095) !important;
+  box-shadow: inset 0 1px 3px rgba(base.$black, 0.1) !important;
+  color: var(--text-mid) !important;
+  transform: translate(2px, 2px);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba(base.$black, 0.1) !important;
+    border: 1px solid rgba(base.$white, 0.095) !important;
+    box-shadow: inset 0 1px 3px base.$black !important;
+    color: var(--text-mid) !important;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// Button with icon [aria-icon]
+button[aria-icon],
+[type="button"][aria-icon],
+[type="reset"][aria-icon],
+[type="submit"][aria-icon],
+[role="button"][aria-icon] {
+  position: relative;
+  padding-left: calc(var(--form-element-spacing-horizontal) + 1.5rem);
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: var(--form-element-spacing-horizontal);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    background-position: center;
+    background-size: 1rem auto;
+    background-repeat: no-repeat;
+    filter: brightness(0) saturate(100%) invert(100%);
+    opacity: 0.9;
+  }
+
+  // Icon selections
+  &[aria-icon="checkbox"]::before { background-image: var(--icon-checkbox); }
+  &[aria-icon="chevron"]::before { background-image: var(--icon-chevron); }
+  &[aria-icon="chevron-button"]::before { background-image: var(--icon-chevron-button); }
+  &[aria-icon="chevron-button-inverse"]::before { background-image: var(--icon-chevron-button-inverse); }
+  &[aria-icon="close"]::before { background-image: var(--icon-close); }
+  &[aria-icon="date"]::before { background-image: var(--icon-date); }
+  &[aria-icon="invalid"]::before { background-image: var(--icon-invalid); }
+  &[aria-icon="minus"]::before { background-image: var(--icon-minus); }
+  &[aria-icon="pause"]::before { background-image: var(--icon-pause); }
+  &[aria-icon="play"]::before { background-image: var(--icon-play); }
+  &[aria-icon="search"]::before { background-image: var(--icon-search); }
+  &[aria-icon="time"]::before { background-image: var(--icon-time); }
+  &[aria-icon="valid"]::before { background-image: var(--icon-valid); }
+}
+
+// Button with icon in latched state - use mid color for visibility
+button[aria-icon][aria-latched="true"],
+[type="button"][aria-icon][aria-latched="true"],
+[type="reset"][aria-icon][aria-latched="true"],
+[type="submit"][aria-icon][aria-latched="true"],
+[role="button"][aria-icon][aria-latched="true"] {
+  &::before {
+    filter: brightness(0) saturate(100%) invert(50%) !important;
+    opacity: 0.7;
+  }
+}
+
+// Button [disabled]
+// Links without href are disabled by default
+:where(button, [type="submit"], [type="button"], [type="reset"], [role="button"])[disabled],
+:where(fieldset[disabled]) :is(button, [type="submit"], [type="button"], [type="reset"], [role="button"]),
+a[role="button"]:not([href]) {
+  opacity: 0.5;
+  pointer-events: none;
+}

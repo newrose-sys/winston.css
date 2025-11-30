@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>winston.css</title>
+    <meta
+      name="description"
+      content=""
+    >
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="winston.scss">
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="container">
+      <hgroup>
+        <img src="logo.svg">
+        <h1>winston.css</h1>
+        <p>The "kitchen sink" example of available winston.css functionality.</p>
+      </hgroup>
+    </header>
+    <!-- ./ Header -->
+
+    <!-- Main -->
+    <main class="container">
+
+      <!-- Typography-->
+      <section id="typography">
+        <h4><code><a href="#typography">#</a></code> Typography</h4>
+        <p>
+          Aliquam lobortis vitae nibh nec rhoncus. Morbi mattis neque eget efficitur feugiat.
+          Vivamus porta nunc a erat mattis, mattis feugiat turpis pretium. Quisque sed tristique
+          felis.
+        </p>
+
+        <h5>Text size</h5>
+
+        <p class="text-xs">.text-xs</p>
+        <p class="text-sm">.text-sm</p>
+        <p>(base size)</p>
+        <p class="text-lg">.text-lg</p>
+        <p class="text-xl">.text-xl</p>
+
+        <h5>Text color</h5>
+
+        <div class="grid">
+          <div>
+            <p class="text-primary">.text-primary</p>
+            <p class="text-error">.text-error</p>
+            <p class="text-warning">.text-warning</p>
+            <p class="text-success">.text-success</p>
+          </div>
+          <div>
+            <p class="text-weak">.text-weak</p>
+            <p class="text-mid">.text-mid</p>
+            <p class="text-strong">.text-strong</p>
+          </div>
+        </div>
+
+        <h5>Font family</h5>
+
+        <p class="font-sans">.font-sans - System UI sans-serif (default)</p>
+        <p class="font-serif">.font-serif - Georgia, Cambria, Times New Roman</p>
+        <p class="font-mono">.font-mono - Menlo, Consolas, Roboto Mono</p>
+
+        <h6>Examples</h6>
+        <h2 class="font-serif">Classic Serif Heading</h2>
+        <p class="font-serif">
+          This paragraph uses serif fonts, perfect for formal content, long-form reading, or when you want
+          that traditional print aesthetic. Serif fonts like Georgia are known for their readability in body text.
+        </p>
+        <blockquote class="font-mono">
+          "This blockquote demonstrates monospace fonts, useful for code snippets, technical documentation,
+          or when you need fixed-width characters."
+        </blockquote>
+
+        <!-- Blockquote-->
+        <h4><code><a href="#blockquote">#</a></code> blockquote</h4>
+        <blockquote>
+          "Maecenas vehicula metus tellus, vitae congue turpis hendrerit non. Nam at dui sit amet
+          ipsum cursus ornare."
+          <footer>
+            <cite>- Phasellus eget lacinia</cite>
+          </footer>
+        </blockquote>
+
+        <!-- Lists-->
+        <h4><code><a href="#lists">#</a></code> Lists</h4>
+        <ul>
+          <li>Aliquam lobortis lacus eu libero ornare facilisis.</li>
+          <li>Nam et magna at libero scelerisque egestas.</li>
+          <li>Suspendisse id nisl ut leo finibus vehicula quis eu ex.</li>
+          <li>Proin ultricies turpis et volutpat vehicula.</li>
+        </ul>
+
+        <!-- Inline text elements-->
+        <h4><code><a href="#inline">#</a></code> Inline Text Elements</h4>
+        <div class="grid" id="inline">
+          <p><a href="#" onclick="event.preventDefault()">Primary link</a></p>
+          <p>
+            <a href="#" class="secondary" onclick="event.preventDefault()">Secondary link</a>
+          </p>
+          <p>
+            <a href="#" class="contrast" onclick="event.preventDefault()">Contrast link</a>
+          </p>
+        </div>
+        <div class="grid">
+          <p><strong>Bold</strong></p>
+          <p><em>Italic</em></p>
+          <p><u>Underline</u></p>
+        </div>
+        <div class="grid">
+          <p><del>Deleted</del></p>
+          <p><ins>Inserted</ins></p>
+          <p><s>Strikethrough</s></p>
+        </div>
+        <div class="grid">
+          <p><small>Small </small></p>
+          <p>Text <sub>Sub</sub></p>
+          <p>Text <sup>Sup</sup></p>
+        </div>
+        <div class="grid">
+          <p>
+            <abbr title="Abbreviation" data-tooltip="Abbreviation">Abbr.</abbr>
+          </p>
+          <p><kbd>Kbd</kbd></p>
+          <p><mark>Highlighted</mark></p>
+        </div>
+
+        <h4><code id="headings"><a href="#headings">#</a></code> Headings</h4>
+        <!-- Headings-->
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+
+        <h5>Heading Groups</h5>
+        <hgroup>
+          <h2>hgroup Example</h2>
+          <p>Using the semantic hgroup element</p>
+        </hgroup>
+
+        <div class="headings">
+          <h2>.headings Class Example</h2>
+          <p>Alternative to hgroup using a div with .headings class</p>
+        </div>
+
+      </section>
+      <!-- ./ Typography-->
+
+      <h4><code id="grids"><a href="#grids">#</a></code> Grids</h4>
+      <section id="grids">
+
+        <h5>Basic</h5>
+        <div class="grid mb-4">
+          <div class="bg-weak">1</div>
+          <div class="bg-weak">2</div>
+          <div class="bg-weak">3</div>
+          <div class="bg-weak">4</div>
+        </div>
+
+        <h5>Static Grid <span class="text-mid" data-tooltip="Forces multi-column layout on all breakpoints including mobile">?</span></h5>
+        <div class="grid static mb-4">
+          <div class="bg-weak">1</div>
+          <div class="bg-weak">2</div>
+          <div class="bg-weak">3</div>
+          <div class="bg-weak">4</div>
+        </div>
+
+        <h5>Grid Ordering <span class="text-mid" data-tooltip="Control visual order with .order-* classes">?</span></h5>
+        <div class="grid static mb-4">
+          <div class="bg-weak order-3">1 (.order-3)</div>
+          <div class="bg-weak order-1">2 (.order-1)</div>
+          <div class="bg-weak order-4">3 (.order-4)</div>
+          <div class="bg-weak order-2">4 (.order-2)</div>
+        </div>
+
+        <h5>Grid Column Spanning <span class="text-mid" data-tooltip="Span multiple columns with .col-span-* classes">?</span></h5>
+        <div class="grid mb-4" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="bg-weak col-span-2">.col-span-2</div>
+          <div class="bg-weak col-span-1">.col-span-1</div>
+          <div class="bg-weak col-span-1">.col-span-1</div>
+          <div class="bg-weak col-span-full">.col-span-full</div>
+        </div>
+
+        <h5>Grid Start/End Positioning <span class="text-mid" data-tooltip="Position items with .col-start-* and .col-end-* classes">?</span></h5>
+        <div class="grid mb-4" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="bg-weak col-start-2 col-end-4">.col-start-2 .col-end-4</div>
+          <div class="bg-weak col-start-1 col-end-2">.col-start-1 .col-end-2</div>
+        </div>
+
+        <h5>Responsive Utility</h5>
+        <div class="grid">
+          <div class="bg-weak hide-sm">.hide-sm</div>
+          <div class="bg-weak hide-md">.hide-md</div>
+          <div class="bg-weak hide-lg">.hide-lg</div>
+        </div>
+
+      </section>
+
+      <h4><code id="containers"><a href="#containers">#</a></code> Containers</h4>
+      <section id="containers">
+        <h5>.container</h5>
+        <div class="container mb-4">
+          <div class="bg-weak">Responsive container with max-width at each breakpoint</div>
+        </div>
+
+        <h5>.container-fluid</h5>
+        <div class="container-fluid">
+          <div class="bg-weak">Full-width container at all breakpoints</div>
+        </div>
+      </section>
+
+      <h4><code><a href="#spacing">#</a></code> Spacing Utilities</h4>
+
+      <section id="spacing">
+        <h5>Margin Scale</h5>
+        <p class="text-sm">Margin utilities use 0.5rem increments from 0 to 4rem</p>
+        <div>
+          <div class="bg-weak">
+            <div class="bg-mid m-0">.m-0 (0rem)</div>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid m-1">.m-1 (0.5rem)</div>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid m-2">.m-2 (1rem)</div>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid m-4">.m-4 (2rem)</div>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid m-8">.m-8 (4rem)</div>
+          </div>
+        </div>
+
+        <h5>Directional Margins</h5>
+        <div class="grid">
+          <div class="bg-weak">
+            <div class="bg-mid mt-4">.mt-4</div>
+            <p class="text-xs text-center">margin-top</p>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid mr-4">.mr-4</div>
+            <p class="text-xs text-center">margin-right</p>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid mb-4">.mb-4</div>
+            <p class="text-xs text-center">margin-bottom</p>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid ml-4">.ml-4</div>
+            <p class="text-xs text-center">margin-left</p>
+          </div>
+        </div>
+
+        <h5>Axis Margins</h5>
+        <div class="grid">
+          <div class="bg-weak">
+            <div class="bg-mid mx-6">.mx-6</div>
+            <p class="text-xs text-center">horizontal (left + right)</p>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid my-6">.my-6</div>
+            <p class="text-xs text-center">vertical (top + bottom)</p>
+          </div>
+        </div>
+
+        <h5>Available Classes</h5>
+        <p class="text-sm">
+          <code>.m-{0-8}</code> <code>.mt-{0-8}</code> <code>.mr-{0-8}</code>
+          <code>.mb-{0-8}</code> <code>.ml-{0-8}</code> <code>.mx-{0-8}</code>
+          <code>.my-{0-8}</code>
+        </p>
+      </section>
+
+      <h4><code><a href="#widths">#</a></code> Width Utilities</h4>
+
+      <section id="widths">
+        <h5>Fractional Widths</h5>
+        <p class="text-sm">Width utilities with percentage-based fractional values</p>
+        <div>
+          <div class="bg-weak mb-2">
+            <div class="bg-mid w-1/2">.w-1/2 (50%)</div>
+          </div>
+          <div class="bg-weak mb-2">
+            <div class="bg-mid w-1/3">.w-1/3 (33.333%)</div>
+          </div>
+          <div class="bg-weak mb-2">
+            <div class="bg-mid w-2/3">.w-2/3 (66.667%)</div>
+          </div>
+          <div class="bg-weak mb-2">
+            <div class="bg-mid w-1/4">.w-1/4 (25%)</div>
+          </div>
+          <div class="bg-weak mb-2">
+            <div class="bg-mid w-3/4">.w-3/4 (75%)</div>
+          </div>
+        </div>
+
+        <h5>Keyword Widths</h5>
+        <div class="grid">
+          <div class="bg-weak">
+            <div class="bg-mid w-auto">.w-auto</div>
+            <p class="text-xs text-center">auto</p>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid w-full">.w-full</div>
+            <p class="text-xs text-center">100%</p>
+          </div>
+          <div class="bg-weak">
+            <div class="bg-mid w-fit">.w-fit</div>
+            <p class="text-xs text-center">fit-content</p>
+          </div>
+        </div>
+
+        <h5>Max-Width Example</h5>
+        <div class="bg-weak">
+          <div class="bg-mid max-w-1/2">.max-w-1/2 (max-width: 50%)</div>
+        </div>
+
+        <h5>Available Classes</h5>
+        <p class="text-sm">
+          <strong>Width:</strong> <code>.w-auto</code> <code>.w-full</code> <code>.w-screen</code>
+          <code>.w-min</code> <code>.w-max</code> <code>.w-fit</code>
+        </p>
+        <p class="text-sm">
+          <strong>Fractions:</strong> <code>.w-1/2</code> <code>.w-1/3</code> <code>.w-2/3</code>
+          <code>.w-1/4</code> <code>.w-3/4</code> <code>.w-1/5</code> through <code>.w-4/5</code>
+          <code>.w-1/6</code> <code>.w-5/6</code> <code>.w-1/12</code> through <code>.w-11/12</code>
+        </p>
+        <p class="text-sm">
+          <strong>Max/Min:</strong> All width values also available as <code>.max-w-*</code> and <code>.min-w-*</code>
+        </p>
+      </section>
+
+      <h4><code><a href="#Modifiers">#</a></code> Modifiers</h4>
+
+      <section id="modifiers">
+
+        <h5>Background Color</h5>
+        <div class="grid mb-4">
+          <div>
+            <div class="bg-primary text-white mb-2">.bg-primary .text-white</div>
+            <div class="bg-success text-white mb-2">.bg-success .text-white</div>
+            <div class="bg-warning text-white mb-2">.bg-warning .text-white</div>
+            <div class="bg-error text-white mb-2">.bg-error .text-white</div>
+          </div>
+
+          <div>
+            <div class="bg-weak text-white mb-2">.bg-weak .text-white</div>
+            <div class="bg-mid text-white mb-2">.bg-mid .text-white</div>
+            <div class="bg-strong text-white mb-2">.bg-strong .text-white</div>
+            <div class="bg-primary striped text-white mb-2">.bg-primary .text-white .striped</div>
+          </div>
+
+          <div>
+            <div class="textured text-white">.textured .text-white</div>
+          </div>
+        </div>
+
+        <h5>Border Color</h5>
+        <div>
+          <div class="grid mb-4">
+            <div class="bd-primary">.bd-primary</div>
+            <div class="bd-success">.bd-success</div>
+            <div class="bd-error">.bd-error</div>
+            <div class="bd-weak">.bd-weak</div>
+            <div class="bd-mid">.bd-mid</div>
+            <div class="bd-strong">.bd-strong</div>
+          </div>
+        </div>
+
+        <h5>Position & Alignment</h5>
+        <div class="bg-weak">
+          <p class="align-left">.align-left - Left aligned text</p>
+          <p class="align-center">.align-center - Center aligned text</p>
+          <p class="align-right">.align-right - Right aligned text</p>
+          <p class="align-justify">.align-justify - Justified text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <h5>Busy</h5>
+        <div class="grid">
+          <div>
+            <p aria-busy="true">Generating link, please wait…</p>
+          </div>
+          <div>
+            <button aria-busy="true">Loading</button>
+          </div>
+        </div>
+      </section>
+
+      <h4><code><a href="#figure">#</a></code> Figure</h4>
+      <figure>
+        <img
+          src="https://placehold.co/800x600/333/FFF"
+          alt="Minimal landscape">
+        <figcaption>
+          Image from
+          <a href="https://placehold.co" target="_blank">https://placehold.co</a>
+        </figcaption>
+      </figure>
+
+      <!-- Dropdowns -->
+      <h4><code><a href="#dropdowns">#</a></code> Dropdowns</h4>
+
+      <div class="grid">
+
+        <details role="list">
+          <summary aria-haspopup="listbox">Dropdown</summary>
+          <ul role="listbox">
+            <li>
+              <label for="small">
+                <input type="radio" id="small" name="size" value="small">
+                Small
+              </label>
+            </li>
+            <li>
+              <label for="medium">
+                <input type="radio" id="medium" name="size" value="medium">
+                Medium
+              </label>
+            </li>
+            <li>
+              <label for="large">
+                <input type="radio" id="large" name="size" value="large">
+                Large
+              </label>
+            </li>
+          </ul>
+        </details>
+
+        <details role="list">
+          <summary aria-haspopup="listbox">
+            Select multiple elements
+          </summary>
+          <ul role="listbox">
+            <li>
+              <label>
+                <input type="checkbox" />
+                Banana
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" />
+                Watermelon
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" />
+                Apple
+              </label>
+            </li>
+          </ul>
+        </details>
+
+        <details role="list">
+          <summary aria-haspopup="listbox" role="button">
+            Dropdown as a button 1
+          </summary>
+          <ul role="listbox">
+            <li><a>Action</a></li>
+            <li><a>Another action</a></li>
+            <li><a>Something else here</a></li>
+          </ul>
+        </details>
+
+      </div>
+
+      <nav>
+        <ul>
+          <li><strong>Dropdown in Nav</strong></li>
+        </ul>
+        <ul>
+          <li>
+            <details role="list" dir="rtl">
+              <summary aria-haspopup="listbox" role="link">Dropdown</summary>
+              <ul role="listbox">
+                <li><a>Action</a></li>
+                <li><a>Another action</a></li>
+                <li><a>Something else here</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- ./Dropdowns -->
+
+      <!-- Form elements-->
+      <section id="form">
+        <form>
+          <h4><code><a href="#form">#</a></code> Form Fields</h4>
+
+          <!-- Search -->
+          <label for="search">Search</label>
+          <input type="search" id="search" name="search" placeholder="Search">
+
+          <!-- Text -->
+          <label for="text">Text</label>
+          <input type="text" id="text" name="text" placeholder="Text">
+          <small>Curabitur consequat lacus at lacus porta finibus.</small>
+
+          <!-- Select -->
+          <label for="select">Select</label>
+          <select id="select" name="select" required>
+            <option value="" selected>Select…</option>
+            <option>…</option>
+          </select>
+
+          <!-- File browser -->
+          <label for="file-default">Default (no file selected)</label>
+          <input type="file" id="file-default" name="file-default">
+
+          <label for="file-valid">Valid</label>
+          <input type="file" id="file-valid" name="file-valid" aria-invalid="false">
+
+          <label for="file-invalid">Invalid</label>
+          <input type="file" id="file-invalid" name="file-invalid" aria-invalid="true">
+
+          <label for="file-disabled">Disabled</label>
+          <input type="file" id="file-disabled" name="file-disabled" disabled>
+
+          <!-- Range slider control -->
+          <label for="range"
+            >Range slider
+            <input type="range" min="0" max="100" value="50" id="range" name="range">
+          </label>
+
+          <!-- States -->
+          <div class="grid">
+            <label for="valid">
+              Valid
+              <input type="text" id="valid" name="valid" placeholder="Valid" aria-invalid="false">
+            </label>
+            <label for="invalid">
+              Invalid
+              <input
+                type="text"
+                id="invalid"
+                name="invalid"
+                placeholder="Invalid"
+                aria-invalid="true"
+              >
+            </label>
+            <label for="disabled">
+              Disabled
+              <input type="text" id="disabled" name="disabled" placeholder="Disabled" disabled>
+            </label>
+          </div>
+
+          <div class="grid">
+            <!-- Date-->
+            <label for="date"
+              >Date
+              <input type="date" id="date" name="date">
+            </label>
+
+            <!-- Time-->
+            <label for="time"
+              >Time
+              <input type="time" id="time" name="time">
+            </label>
+
+            <!-- Color-->
+            <label for="color"
+              >Color
+              <input type="color" id="color" name="color" value="#0eaaaa">
+            </label>
+          </div>
+
+          <div class="grid">
+            <!-- Checkboxes -->
+            <fieldset>
+              <legend><strong>Checkboxes</strong></legend>
+              <label for="checkbox-1">
+                <input type="checkbox" id="checkbox-1" name="checkbox-1" checked>
+                Checkbox
+              </label>
+              <label for="checkbox-2">
+                <input type="checkbox" id="checkbox-2" name="checkbox-2">
+                Checkbox
+              </label>
+            </fieldset>
+
+            <!-- Radio buttons -->
+            <fieldset>
+              <legend><strong>Radio buttons</strong></legend>
+              <label for="radio-1">
+                <input type="radio" id="radio-1" name="radio" value="radio-1" checked>
+                Radio button
+              </label>
+              <label for="radio-2">
+                <input type="radio" id="radio-2" name="radio" value="radio-2">
+                Radio button
+              </label>
+            </fieldset>
+
+            <!-- Switch -->
+            <fieldset>
+              <legend><strong>Switches</strong></legend>
+              <label for="switch-1">
+                <input type="checkbox" id="switch-1" name="switch-1" role="switch" checked>
+                Switch
+              </label>
+              <label for="switch-2">
+                <input type="checkbox" id="switch-2" name="switch-2" role="switch">
+                Switch
+              </label>
+            </fieldset>
+          </div>
+          <div class="grid">
+            <button class="bg-primary" onclick="event.preventDefault()">Primary</button>
+            <button class="bg-success" onclick="event.preventDefault()">Confirm</button>
+            <button class="bg-error" aria-invalid="true" onclick="event.preventDefault()">DANGER</button>
+            <button class="bg-warning" aria-icon="play" aria-latched="true" onclick="event.preventDefault()">Latched</button>
+            <input type="reset" value="Reset" onclick="event.preventDefault()">
+          </div>
+
+          <h5>Buttons with Icons</h5>
+          <div class="grid">
+            <button aria-icon="search">Search</button>
+            <button aria-icon="close" class="bg-error">Close</button>
+            <button aria-icon="valid" class="bg-success">Confirm</button>
+            <button aria-icon="time">Schedule</button>
+          </div>
+        </form>
+      </section>
+      <!-- ./ Form elements-->
+
+      <!-- Tables -->
+      <section id="tables">
+        <h4><code><a href="#tables">#</a></code> Tables</h4>
+        <figure>
+          <table role="grid">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+                <th scope="col">Heading</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+      </section>
+      <!-- ./ Tables -->
+
+      <!-- Progress -->
+      <h4><code><a href="#progress">#</a></code> Progress</h4>
+
+      <section id="progress">
+        <progress id="progress-1" value="25" max="100"></progress>
+        <progress id="progress-2"></progress>
+      </section>
+      <!-- ./ Progress -->
+
+      <!-- Separator -->
+      <h4><code><a href="#separator">#</a></code> Separator</h4>
+
+      <div class="separator">Solid Line Separator</div>
+
+      <div class="separator dashed">Dashed Line Separator</div>
+      <!-- ./ Separator -->
+
+      <!-- Tags-->
+      <h4><code><a href="#tags">#</a></code> Tags</h4>
+
+      <p>
+        <span class="tag">One</span>
+        <span class="tag">Two</span>
+        <span class="tag">Three</span>
+        <span class="tag is-small">Small</span>
+      </p>
+
+      <h5>Tags with Color Utilities</h5>
+      <p>
+        <span class="tag bg-primary text-white">Primary</span>
+        <span class="tag bg-success text-white">Success</span>
+        <span class="tag bg-error text-white">Error</span>
+        <span class="tag bg-warning text-white">Warning</span>
+      </p>
+      <!-- ./Tags -->
+
+      <!-- Card -->
+      <h4><code><a href="#card">#</a></code> Card</h4>
+
+      <section id="card">
+        <div class="card">
+          <h6>Card Example</h6>
+          <p>Cards can use regular headings for their titles, providing semantic HTML structure.</p>
+        </div>
+
+        <div class="card">
+          <h6>Real-World Example</h6>
+
+          <div class="grid">
+            <p>Integer bibendum malesuada libero vel eleifend. Fusce iaculis turpis ipsum, at efficitur
+          sem scelerisque vel. Aliquam auctor diam ut purus cursus fringilla. Class aptent taciti
+          sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <p aria-busy="true">Generating link, please wait…</p>
+          </div>
+
+          <div class="separator">Choose Wisely</div>
+
+          <div class="grid">
+            <button>Primary</button>
+            <button class="secondary">Secondary</button>
+          </div>
+        </div>
+      </section>
+      <!-- ./ Card -->
+
+      <!-- Accordion -->
+      <h4><code><a href="#accordion">#</a></code> Accordion</h4>
+
+      <section id="accordion">
+        <details>
+          <summary>Accordion 1</summary>
+          <p>Integer bibendum malesuada libero vel eleifend. Fusce iaculis turpis ipsum, at efficitur
+        sem scelerisque vel. Aliquam auctor diam ut purus cursus fringilla. Class aptent taciti
+        sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        </details>
+
+        <details open>
+          <summary>Accordion 2</summary>
+          <ul>
+            <li>Integer bibendum malesuada libero vel eleifend. Fusce iaculis turpis ipsum, at efficitur
+        sem scelerisque vel. Aliquam auctor diam ut purus cursus fringilla. Class aptent taciti
+        sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</li>
+            <li>Integer bibendum malesuada libero vel eleifend. Fusce iaculis turpis ipsum, at efficitur
+        sem scelerisque vel. Aliquam auctor diam ut purus cursus fringilla. Class aptent taciti
+        sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</li>
+          </ul>
+        </details>
+      </section>
+      <!-- ./ Accordion -->
+
+      <!-- Lightbox -->
+      <h4><code><a href="#lightbox">#</a></code> Lightbox</h4>
+
+      <section id="lightbox">
+        <p>Modal lightbox that slides down from the top. Controlled via JavaScript API.</p>
+
+        <div class="grid">
+          <button onclick="lightbox1.open()">Open Basic Lightbox</button>
+          <button onclick="lightbox2.open()">Open Form Lightbox</button>
+          <button onclick="lightbox3.open()">Open Content Lightbox</button>
+          <button onclick="lightboxFullscreen.open()" class="bg-primary">Open Fullscreen Search</button>
+        </div>
+
+        <!-- Basic Lightbox Example -->
+        <div id="lightbox-1" class="lightbox" aria-hidden="true">
+          <h3>Basic Lightbox</h3>
+          <p>This is a simple lightbox that slides down from the top of the page.</p>
+          <p>You can close it by:</p>
+          <ul>
+            <li>Clicking the close button (×)</li>
+            <li>Pressing the ESC key</li>
+            <li>Clicking outside on the backdrop</li>
+          </ul>
+          <button onclick="lightbox1.close()">Close</button>
+        </div>
+
+        <!-- Form Lightbox Example -->
+        <div id="lightbox-2" class="lightbox" aria-hidden="true">
+          <header>
+            <h3>Sign Up Form</h3>
+            <p>Fill out the form below to create an account</p>
+          </header>
+          <form onsubmit="event.preventDefault(); alert('Form submitted!'); lightbox2.close();">
+            <label for="lightbox-name">Name</label>
+            <input type="text" id="lightbox-name" name="name" placeholder="Your name" required>
+
+            <label for="lightbox-email">Email</label>
+            <input type="email" id="lightbox-email" name="email" placeholder="your@email.com" required>
+
+            <label for="lightbox-password">Password</label>
+            <input type="password" id="lightbox-password" name="password" placeholder="••••••••" required>
+
+            <div class="grid">
+              <button type="submit">Submit</button>
+              <button type="button" class="secondary" onclick="lightbox2.close()">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Content Lightbox Example -->
+        <div id="lightbox-3" class="lightbox" aria-hidden="true">
+          <h3>Rich Content Example</h3>
+          <p>Lightboxes can contain any winston.css components:</p>
+
+          <div class="card">
+            <h6>Card Inside Lightbox</h6>
+            <p>Cards work perfectly inside lightboxes.</p>
+          </div>
+
+          <div class="separator">Separator</div>
+
+          <div class="grid">
+            <div class="bg-primary text-white">Grid</div>
+            <div class="bg-success text-white">Items</div>
+          </div>
+
+          <footer>
+            <div class="grid">
+              <button onclick="lightbox3.close()">Got it!</button>
+              <button class="secondary" onclick="lightbox3.close()">Close</button>
+            </div>
+          </footer>
+        </div>
+
+        <!-- Fullscreen Overlay Example -->
+        <div id="lightbox-fullscreen" class="lightbox lightbox-fullscreen" aria-hidden="true">
+          <div class="lightbox-content">
+            <div class="container">
+              <hgroup>
+                <h1>Search Everything</h1>
+                <p>Fullscreen overlay example with search functionality</p>
+              </hgroup>
+
+              <form onsubmit="event.preventDefault();">
+                <div class="grid">
+                  <input type="search" id="fullscreen-search" placeholder="Search for anything..." autofocus>
+                  <button type="submit">Search</button>
+                </div>
+              </form>
+
+              <div class="separator">Recent Searches</div>
+
+              <div class="grid">
+                <div class="card">
+                  <h6>Documentation</h6>
+                  <p class="text-sm">How to use winston.css components</p>
+                  <small class="text-mid">2 hours ago</small>
+                </div>
+                <div class="card">
+                  <h6>Color System</h6>
+                  <p class="text-sm">HSL-based color scale and utilities</p>
+                  <small class="text-mid">Yesterday</small>
+                </div>
+                <div class="card">
+                  <h6>Grid Layout</h6>
+                  <p class="text-sm">Responsive grid system examples</p>
+                  <small class="text-mid">3 days ago</small>
+                </div>
+              </div>
+
+              <div class="separator">Popular Content</div>
+
+              <article>
+                <h4>Getting Started with winston.css</h4>
+                <p>A comprehensive guide to building beautiful, semantic HTML interfaces with winston.css. This minimal framework provides all the components you need without the bloat.</p>
+                <footer class="text-mid text-sm">Published on November 29, 2025</footer>
+              </article>
+
+              <article>
+                <h4>Advanced Grid Techniques</h4>
+                <p>Learn how to create complex layouts using winston.css grid utilities including column spanning, positioning, and responsive visibility controls.</p>
+                <footer class="text-mid text-sm">Published on November 28, 2025</footer>
+              </article>
+
+              <article>
+                <h4>Customizing Your Theme</h4>
+                <p>Discover how to customize winston.css using CSS custom properties. Change colors, spacing, and typography to match your brand.</p>
+                <footer class="text-mid text-sm">Published on November 27, 2025</footer>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <h5>Variants</h5>
+        <p class="text-sm">Use <code>.lightbox-fullscreen</code> for full-width overlays that take up the entire viewport. Perfect for search interfaces, navigation menus, or content browsers.</p>
+
+        <h5>JavaScript API</h5>
+        <pre><code>// Create a lightbox instance
+const lightbox = new Lightbox('#lightbox-1');
+
+// Open the lightbox
+lightbox.open();
+
+// Close the lightbox
+lightbox.close();
+
+// Toggle the lightbox
+lightbox.toggle();
+
+// Listen to events
+element.addEventListener('lightbox:open', () => console.log('Opened'));
+element.addEventListener('lightbox:close', () => console.log('Closed'));</code></pre>
+      </section>
+      <!-- ./ Lightbox -->
+
+      <!-- Tooltip-->
+      <h4><code><a href="#tooltip">#</a></code> Tooltip</h4>
+
+      <p>Tooltip on a <a href="#" data-tooltip="Tooltip">link</a></p>
+      <p>Tooltip on <em data-tooltip="Tooltip">inline element</em></p>
+
+      <h5>Tooltip Placements</h5>
+      <div class="grid">
+        <div class="align-center">
+          <p><span data-tooltip="Top tooltip" data-placement="top">Top</span></p>
+        </div>
+        <div class="align-center">
+          <p><span data-tooltip="Bottom tooltip" data-placement="bottom">Bottom</span></p>
+        </div>
+        <div class="align-center">
+          <p><span data-tooltip="Left tooltip" data-placement="left">Left</span></p>
+        </div>
+        <div class="align-center">
+          <p><span data-tooltip="Right tooltip" data-placement="right">Right</span></p>
+        </div>
+      </div>
+      <!-- ./Tooltip -->
+
+      <!-- Navs -->
+      <h4><code><a href="#navs">#</a></code> Navs</h4>
+      <nav>
+        <ul>
+          <li><a href="#" class="secondary">…</a></li>
+        </ul>
+        <ul>
+          <li><strong>Brand</strong></li>
+        </ul>
+        <ul>
+          <li><a href="#" class="secondary">…</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="breadcrumb">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Category</a></li>
+          <li>Page</li>
+        </ul>
+      </nav>
+
+      <nav>
+        <ul>
+          <li><strong>Brand</strong></li>
+        </ul>
+        <ul>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li role="list">
+            <a href="#">Hover Dropdown</a>
+            <ul role="listbox">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else</a></li>
+            </ul>
+          </li>
+          <li><a href="#" role="button">Button</a></li>
+        </ul>
+      </nav>
+
+      <aside>
+        <nav>
+          <ul>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- ./ Navs -->
+    </main>
+    <!-- ./ Main -->
+
+    <!-- Footer -->
+    <footer class="container" id="footer">
+      <h4><code><a href="#footer">#</a></code> Footer</h4>
+
+      <div class="grid static">
+        <div>Things</div>
+        <div class="align-right">More Things</div>
+      </div>
+      <hr/>
+      <div class="grid static">
+        <div>
+          <small class="text-mid text-xs">Copyright ?</small>
+        </div>
+        <div class="align-right vertical-top">
+          <small class="text-xs">
+            <code>build info</code>
+          </small>
+        </div>
+      </div>
+    </footer>
+    <!-- ./ Footer -->
+
+    <!-- Lightbox JavaScript -->
+    <script src="lightbox.js"></script>
+    <script>
+      // Initialize lightbox instances
+      const lightbox1 = new Lightbox('#lightbox-1');
+      const lightbox2 = new Lightbox('#lightbox-2');
+      const lightbox3 = new Lightbox('#lightbox-3');
+      const lightboxFullscreen = new Lightbox('#lightbox-fullscreen');
+
+      // Optional: Add event listeners
+      document.getElementById('lightbox-1').addEventListener('lightbox:open', () => {
+        console.log('Lightbox 1 opened');
+      });
+
+      document.getElementById('lightbox-1').addEventListener('lightbox:close', () => {
+        console.log('Lightbox 1 closed');
+      });
+    </script>
+
+  </body>
+</html>

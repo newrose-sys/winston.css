@@ -1,0 +1,298 @@
+@use "base";
+
+@use "sass:map";
+
+/**
+ * Document
+ * Content-box & Responsive typography
+ */
+
+// Reboot based on :
+// - normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
+// - sanitize.css v13.0.0 | CC0 1.0 Universal | github.com/csstools/sanitize.css
+// ––––––––––––––––––––
+
+// 1. Add border box sizing in all browsers (opinionated)
+// 2. Backgrounds do not repeat by default (opinionated)
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
+  background-repeat: no-repeat; // 2
+}
+
+// 1. Add text decoration inheritance in all browsers (opinionated)
+// 2. Add vertical alignment inheritance in all browsers (opinionated)
+::before,
+::after {
+  text-decoration: inherit; // 1
+  vertical-align: inherit; // 2
+}
+
+// 1. Use the default cursor in all browsers (opinionated)
+// 2. Change the line height in all browsers (opinionated)
+// 3. Breaks words to prevent overflow in all browsers (opinionated)
+// 4. Use a 4-space tab width in all browsers (opinionated)
+// 5. Remove the grey highlight on links in iOS (opinionated)
+// 6. Prevent adjustments of font size after orientation changes in iOS
+:where(:root) {
+  -webkit-tap-highlight-color: transparent; // 5
+  -webkit-text-size-adjust: 100%; // 6
+  text-size-adjust: 100%; // 6
+  background-color: var(--background-color);
+  color: var(--color);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height); // 2
+  font-family: var(--font-family);
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word; // 3
+  cursor: default; // 1
+  tab-size: 4; // 4
+}
+
+/**
+ * Sectioning
+ * Container and responsive spacings for header, main, footer
+ */
+
+// Reboot based on :
+// - normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
+// - sanitize.css v13.0.0 | CC0 1.0 Universal | github.com/csstools/sanitize.css
+// ––––––––––––––––––––
+
+// Render the `main` element consistently in IE
+main {
+  display: block;
+}
+
+// Pico
+// ––––––––––––––––––––
+
+// 1. Remove the margin in all browsers (opinionated)
+body {
+  width: 100%;
+  margin: 0; // 1
+
+  > header,
+  > main,
+  > footer {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    // Semantic container
+    padding: var(--block-spacing-vertical) var(--block-spacing-horizontal);
+
+    // Centered viewport
+    @if map.get(base.$breakpoints, "sm") {
+      @media (min-width: map.get(base.$breakpoints, "sm")) {
+        max-width: map.get(base.$viewports, "sm");
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    @if map.get(base.$breakpoints, "md") {
+      @media (min-width: map.get(base.$breakpoints, "md")) {
+        max-width: map.get(base.$viewports, "md");
+      }
+    }
+
+    @if map.get(base.$breakpoints, "lg") {
+      @media (min-width: map.get(base.$breakpoints, "lg")) {
+        max-width: map.get(base.$viewports, "lg");
+      }
+    }
+
+    @if map.get(base.$breakpoints, "xl") {
+      @media (min-width: map.get(base.$breakpoints, "xl")) {
+        max-width: map.get(base.$viewports, "xl");
+      }
+    }
+  }
+}
+
+/**
+* Container
+*/
+
+.container,
+.container-fluid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--spacing);
+  padding-left: var(--spacing);
+}
+
+.container {
+  @if map.get(base.$breakpoints, "sm") {
+    @media (min-width: map.get(base.$breakpoints, "sm")) {
+      max-width: map.get(base.$viewports, "sm");
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  @if map.get(base.$breakpoints, "md") {
+    @media (min-width: map.get(base.$breakpoints, "md")) {
+      max-width: map.get(base.$viewports, "md");
+    }
+  }
+
+  @if map.get(base.$breakpoints, "lg") {
+    @media (min-width: map.get(base.$breakpoints, "lg")) {
+      max-width: map.get(base.$viewports, "lg");
+    }
+  }
+
+  @if map.get(base.$breakpoints, "xl") {
+    @media (min-width: map.get(base.$breakpoints, "xl")) {
+      max-width: map.get(base.$viewports, "xl");
+    }
+  }
+}
+
+/**
+ * Section
+ * Responsive spacings for section
+ */
+
+section {
+  margin-bottom: var(--block-spacing-vertical);
+}
+
+/**
+* Grid
+* Minimal grid system with auto-layout columns
+*/
+
+.grid {
+  grid-column-gap: var(--grid-spacing-horizontal);
+  grid-row-gap: var(--grid-spacing-vertical);
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+
+  @if map.get(base.$breakpoints, "lg") {
+    @media (min-width: map.get(base.$breakpoints, "lg")) {
+      grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+    }
+  }
+
+  &.static {
+    grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+  }
+
+  & > * {
+    min-width: 0; // HACK for childs in overflow
+  }
+}
+
+/**
+ * Horizontal scroller (<figure>)
+ */
+
+// Wrapper to make any content responsive across all viewports
+figure {
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+
+  figcaption {
+    padding: calc(var(--spacing) * 0.5) 0;
+    color: var(--muted-color);
+  }
+}
+
+/**
+ * Misc Elements
+ */
+
+// Reboot based on :
+// - normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
+// - sanitize.css v13.0.0 | CC0 1.0 Universal | github.com/csstools/sanitize.css
+// ––––––––––––––––––––
+
+// 1. Correct the inheritance of border color in Firefox
+// 2. Add the correct box sizing in Firefox
+hr {
+  height: 0; // 2
+  border: 0;
+  border-top: 1px solid var(--muted-border-color);
+  color: inherit; // 1
+}
+
+// Add the correct display in IE 10+
+[hidden],
+template {
+  display: none !important;
+}
+
+// Add the correct display in IE 9-
+canvas {
+  display: inline-block;
+}
+
+/**
+ * Loading ([aria-busy=true])
+ */
+
+// Cursor
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+// Everything except form elements
+[aria-busy="true"]:not(input, select, textarea, html) {
+
+  &::before {
+    display: inline-block;
+    width: 0.625em;
+    height: 0.625em;
+    background-color: currentColor;
+    border-radius: 50%;
+    content: "";
+    vertical-align: 0.05em;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  &:not(:empty) {
+    &::before {
+      margin-right: calc(var(--spacing) * 0.5);
+      margin-left: 0;
+      margin-inline-start: 0;
+      margin-inline-end: calc(var(--spacing) * 0.5);
+    }
+  }
+
+  &:empty {
+    text-align: center;
+  }
+}
+
+// Buttons and links
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+a {
+  &[aria-busy="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+// Animation: pulse
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}

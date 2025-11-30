@@ -1,0 +1,77 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:string";
+
+// Responsive
+// ––––––––––––––––––––
+
+// xs: Extra small (portrait phones)
+// sm: Small (landscape phones)
+// md: Medium (tablets)
+// lg: Large (desktops)
+// xl: Extra large (large desktops)
+
+// NOTE:
+// To provide an easy and fine styling on each breakpoint
+// we didn't use @each, @mixin or @include.
+// That means you need to edit each CSS selector file to add a breakpoint
+
+// Breakpoints
+// 'null' disable the breakpoint
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+// Viewports
+$viewports: (
+  // 'null' disable the viewport on a breakpoint
+  sm: 510px,
+  md: 700px,
+  lg: 920px,
+  xl: 1130px
+) !default;
+
+/* Colors */
+
+// Functional
+$black: #000 !default;
+$white: #fff !default;
+
+$color-success: #16a34a !default;
+$color-error: #dc2626 !default;
+$color-warning: #FF9400 !default;
+$color-primary: #E04857 !default;
+$color-grey: #999999 !default;
+
+$saturation-primary: 50%;
+$saturation-grey: 1%;
+
+// Grey
+$grey-hue: color.channel($color-grey, "hue", $space: hsl) !default;
+$grey-50: hsl($grey-hue, $saturation-grey, 94%) !default;
+$grey-100: hsl($grey-hue, $saturation-grey, 86%) !default;
+$grey-200: hsl($grey-hue, $saturation-grey, 77%) !default;
+$grey-300: hsl($grey-hue, $saturation-grey, 68%) !default;
+$grey-400: hsl($grey-hue, $saturation-grey, 59%) !default;
+$grey-500: hsl($grey-hue, $saturation-grey, 50%) !default;
+$grey-600: hsl($grey-hue, $saturation-grey, 41%) !default;
+$grey-700: hsl($grey-hue, $saturation-grey, 32%) !default;
+$grey-800: hsl($grey-hue, $saturation-grey, 23%) !default;
+$grey-900: hsl($grey-hue, $saturation-grey, 15%) !default;
+
+// Primary
+$primary-hue: color.channel($color-primary, "hue", $space: hsl) !default;
+$primary-50: hsl($primary-hue, $saturation-primary, 94%) !default;
+$primary-100: hsl($primary-hue, $saturation-primary, 86%) !default;
+$primary-200: hsl($primary-hue, $saturation-primary, 77%) !default;
+$primary-300: hsl($primary-hue, $saturation-primary, 68%) !default;
+$primary-400: hsl($primary-hue, $saturation-primary, 59%) !default;
+$primary-500: hsl($primary-hue, $saturation-primary, 50%) !default;
+$primary-600: hsl($primary-hue, $saturation-primary, 41%) !default;
+$primary-700: hsl($primary-hue, $saturation-primary, 32%) !default;
+$primary-800: hsl($primary-hue, $saturation-primary, 23%) !default;
+$primary-900: hsl($primary-hue, $saturation-primary, 15%) !default;

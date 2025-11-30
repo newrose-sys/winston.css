@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "../base/config" as *;
+
+/**
+ * Card
+ */
+
+.card {
+  padding: 1.5rem;
+  border-radius: 0;
+  border: 1px solid rgba($black, 0.095);
+  background-color: rgba($black, 0.025);
+  box-shadow: inset 0 1px 3px rgba($black, 0.1);
+  margin-bottom: var(--spacing);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgba($black, 0.1);
+    border: 1px solid rgba($white, 0.095);
+    box-shadow: inset 0 1px 3px $black;
+  }
+
+  @if map.get($breakpoints, "lg") {
+    @media (min-width: map.get($breakpoints, "lg")) {
+      button {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  button:last-of-type {
+    margin-bottom: 0px;
+  }
+}
+
+.card p:last-child {
+  margin: 0;
+}
+
+.card header > * {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,14 @@
+// Base layer - configuration, functions, and theme
+@forward "base";
+
+// Core styles
+@use "icons";
+@use "document";
+@use "typography";
+@use "form";
+
+// Components
+@use "components";
+
+// Utilities
+@use "utilities";
